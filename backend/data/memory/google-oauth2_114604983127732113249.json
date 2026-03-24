@@ -1,0 +1,33 @@
+{
+  "memories": [
+    {
+      "key": "auth_required_for_api",
+      "value": "true",
+      "category": "preference"
+    },
+    {
+      "key": "email_client_usage",
+      "value": "recommended",
+      "category": "preference"
+    },
+    {
+      "key": "gmail_website_usage",
+      "value": "alternative",
+      "category": "preference"
+    },
+    {
+      "key": "notion_project_tracker_location",
+      "value": "https://www.notion.so/Project-Tracker-32a97771455881ebb02eda80ad99a0c6",
+      "category": "preference"
+    }
+  ],
+  "permission_rules": [],
+  "scope_config": {},
+  "templates": [
+    {
+      "name": "Checking My Unread Emails",
+      "task": "summarize my unread emails",
+      "icon": "\u26a1"
+    }
+  ]
+}

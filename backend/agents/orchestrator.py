@@ -7,16 +7,11 @@ from tools.gmail_tool import GmailTool
 from tools.notion_tool import NotionTool
 
 client = Groq(api_key=os.environ.get("GROQ_API_KEY",""))
-
 TOOLS = [
-    {"type":"function","function":{"name":"gmail_get_unread","description":"Get unread emails from Gmail inbox.",
-     "parameters":{"type":"object","properties":{"max_results":{"type":"integer","default":10}}}}},
-    {"type":"function","function":{"name":"gmail_search","description":"Search Gmail.",
-     "parameters":{"type":"object","properties":{"query":{"type":"string"},"max_results":{"type":"integer","default":10}},"required":["query"]}}},
-    {"type":"function","function":{"name":"notion_create_page","description":"Create a Notion page.",
-     "parameters":{"type":"object","properties":{"title":{"type":"string"},"sections":{"type":"array","items":{"type":"object","properties":{"heading":{"type":"string"},"items":{"type":"array","items":{"type":"string"}}}}}},"required":["title","sections"]}}},
-    {"type":"function","function":{"name":"notion_get_databases","description":"List Notion databases.",
-     "parameters":{"type":"object","properties":{}}}}
+    {"type":"function","function":{"name":"gmail_get_unread","description":"Get unread emails from Gmail inbox.","parameters":{"type":"object","properties":{"max_results":{"type":"integer","default":10}},"required":[]}}},
+    {"type":"function","function":{"name":"gmail_search","description":"Search Gmail.","parameters":{"type":"object","properties":{"query":{"type":"string"},"max_results":{"type":"integer","default":10}},"required":["query"]}}},
+    {"type":"function","function":{"name":"notion_create_page","description":"Create a Notion page with content.","parameters":{"type":"object","properties":{"title":{"type":"string","description":"Page title"},"sections":{"type":"array","description":"Content sections","items":{"type":"object","properties":{"heading":{"type":"string"},"items":{"type":"array","items":{"type":"string"}}},"required":["heading","items"]}}},"required":["title","sections"]}}},
+    {"type":"function","function":{"name":"notion_get_databases","description":"List Notion databases.","parameters":{"type":"object","properties":{},"required":[]}}}
 ]
 
 async def generate_template_name(task: str) -> str:
